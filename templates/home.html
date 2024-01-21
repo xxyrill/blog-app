@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for post in object_list %}
+
+<div class="post-entry">
+    <h2>
+        <a href="{% url 'post_detail' post.pk %}">
+        {{ post.title }} </a>
+    </h2>
+    <p> {{ post.body }} </p>
+</div>
+
+{% endfor %}
+{% endblock content %}
+
+<!-- {% url 'post_detail' post.pk %}: This Django template tag generates a URL for
+the 'post_detail' URL pattern. The URL pattern is identified by its name, which is
+'post_detail' in this case. It also includes a parameter post.pk, where pk is assumed
+to be the primary key of a Post model instance.
+
+ the post_detail URL pattern expects an integer parameter named pk and maps to a
+ view class PostDetailView. The {% url 'post_detail' post.pk %} template tag
+ generates a URL based on this pattern and the primary key of the Post instance.
