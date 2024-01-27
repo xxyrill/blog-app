@@ -1,1 +1,1 @@
-web:gunicornpages_project.wsgi
+web:gunicornblog_project.wsgi

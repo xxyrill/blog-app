@@ -17,7 +17,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -27,8 +26,7 @@ SECRET_KEY = 'django-insecure-7@-v#wn_*$u1+ksyi&j5!+=%j3!_afm+gpu56(0*vb(u=$=92u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['xy-blog-app-d386ea24d666.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -38,18 +36,18 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nonstatic',       # dedicated for whitenoise as django does not support
+    'whitenoise.runserver_nonstatic',  # dedicated for whitenoise as django does not support
     # static files in production
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',     # dedicated for the Blog app
-    'accounts.apps.AccountsConfig',     # dedicated for the Accounts app
+    'blog.apps.BlogConfig',  # dedicated for the Blog app
+    'accounts.apps.AccountsConfig',  # dedicated for the Accounts app
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleWare',    # new, for whitenoise
+    'whitenoise.middleware.WhiteNoiseMiddleWare',  # new, for whitenoise
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -77,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -87,7 +84,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -107,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -119,13 +114,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')     # new, for whitenoise
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # new, for whitenoise
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]   # our website is static and this needs to be added
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # our website is static and this needs to be added
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
