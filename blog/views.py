@@ -1,16 +1,36 @@
 from django.views.generic import ListView, DetailView
-# imported the ListView and DetailView class form django
+# imported the ListView and DetailView class from django
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView # new
+
+from django.urls import reverse_lazy # new
 
 from .models import Post
+
 # refers to the models.py in the current app, then import class Post in models.py
 
 class BlogListView(ListView):
-    model = Post
-    template_name = 'home.html'
+    model = Post    # refers to the Post model in models.py, the class will interact with the Post model
+    template_name = 'home.html'     # refers to the home.html in templates
 
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
+
+class BlogCreateView(CreateView):
+    model = Post
+    template_name = 'post_new.html'
+    fields = ['title', 'author', 'body']
+
+class BlogUpdateView(UpdateView): # new
+    model = Post
+    template_name = 'post_edit.html'
+    fields = ['title', 'body']
+
+class BlogDeleteView(DeleteView):
+    model = Post
+    template_name = 'post_delete.html'
+    success_url = reverse_lazy('home')
 
 # l7, created a new class and used ListView as a subclass. The class will inherit
 # the attributes of the class ListView (such as  simplifying the process of
