@@ -1,0 +1,1 @@
+web:gunicornpages_project.wsgi
